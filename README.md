@@ -23,7 +23,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: tcosta84.yum }
+         - { role: tcosta84.python }
 
 License
 -------
