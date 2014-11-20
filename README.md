@@ -1,5 +1,5 @@
-Role Name
-=========
+Ansible Role: Python
+====================
 
 Installs minimal Python 2.7.8 + Setuptools + PIP (from source) on CentOS 6.5
 
