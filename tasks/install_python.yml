@@ -17,16 +17,16 @@
   register: python
 
 - name: Download Python
-  get_url: url=https://www.python.org/ftp/python/2.7.8/Python-2.7.8.tgz 
-           dest=/tmp/Python-2.7.8.tar
+  get_url: url=https://www.python.org/ftp/python/{{ python_version }}/Python-{{ python_version }}.tgz
+           dest=/tmp/Python-{{ python_version }}.tar
   when: not python.stat.exists
 
 - name: Unpack Python
-  unarchive: src=/tmp/Python-2.7.8.tar dest=/tmp copy=no
+  unarchive: src=/tmp/Python-{{ python_version }}.tar dest=/tmp copy=no
   when: not python.stat.exists
 
 - name: Configure, compile and install Python
-  shell: cd /tmp/Python-2.7.8 && {{ item }}
+  shell: cd /tmp/Python-{{ python_version }} && {{ item }}
   with_items:
     - ./configure
     - make
