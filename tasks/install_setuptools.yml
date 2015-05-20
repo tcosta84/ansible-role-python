@@ -5,14 +5,14 @@
   register: setuptools
 
 - name: Download Setuptools
-  get_url: url=https://pypi.python.org/packages/source/s/setuptools/setuptools-5.7.tar.gz 
-           dest=/tmp/setuptools-5.7.tar
+  get_url: url=https://pypi.python.org/packages/source/s/setuptools/setuptools-5.7.tar.gz
+           dest={{ tmp_dir }}/setuptools-5.7.tar
   when: not setuptools.stat.exists
 
 - name: Unpack Setuptools
-  unarchive: src=/tmp/setuptools-5.7.tar dest=/tmp copy=no
+  unarchive: src={{ tmp_dir }}/setuptools-5.7.tar dest={{ tmp_dir }} copy=no
   when: not setuptools.stat.exists
 
 - name: Install Setuptools
-  command: /usr/local/bin/python2.7 setup.py install chdir=/tmp/setuptools-5.7
+  command: /usr/local/bin/python2.7 setup.py install chdir={{ tmp_dir }}/setuptools-5.7
   when: not setuptools.stat.exists
