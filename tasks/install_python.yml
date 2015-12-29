@@ -11,6 +11,7 @@
     - pcre-devel
     - curl-devel
     - sqlite-devel
+    - tar
 
 - name: Check if python is already installed
   stat: path=/usr/local/bin/python2.7
