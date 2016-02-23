@@ -4,6 +4,19 @@
   stat: path=/usr/local/bin/pip2.7
   register: pip
 
-- name: Install PIP
-  easy_install: name=pip
+- name: python | pip | Upload the pip install script
+  copy:
+    src: get-pip.py
+    dest: /tmp/get-pip.py
+    owner: root
+    group: root
+    mode: 0644
+
+- name: python | pip | install pip
+  command: /"{{ python_binary }}" /tmp/get-pip.py creates="{{ python_pip_location }}"
   when: not pip.stat.exists
+
+
+# - name: Install PIP
+#   easy_install: name=pip
+#   when: not pip.stat.exists

@@ -1,0 +1,6 @@
+---
+python_version: "2.7.9"
+python_prefix_dir: "/usr/local"
+
+python_binary: "{{python_prefix_dir}}/bin/python2.7"
+python_pip_location:  "{{python_prefix_dir}}/bin/pip"
